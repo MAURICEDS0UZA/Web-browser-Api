@@ -13,3 +13,12 @@ ctx.rotate(-Math.PI / 2);
 ctx.fillStyle = "#cfeb9b";
 ctx.strokeStyle = "#ed806f";
 ctx.lineCap = "round";
+
+// Draw clock face & border
+ctx.save();
+ctx.beginPath();
+ctx.lineWidth = 14;
+ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+ctx.fill();
+ctx.stroke();
+ctx.retore();
