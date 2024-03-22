@@ -5,9 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styleSheet.css" />
     <title>Animated Clock</title>
   </head>
   <body>
-    <canvas id="canvas" width="500 rem" height="500rem"></canvas>
+    <div class="container">
+      <canvas id="canvas" width="500" height="500"></canvas>
+
+      <div class="card">
+        <form>
+          <div class="form-input">
+            <label for="border-color">Border Color</label>
+            <input type="color" id="border-color" value="#ee8879" />
+          </div>
+          <div class="form-input">
+            <label for="face-color">Face Color</label>
+            <input type="color" id="face-color" value="#cfeb9b" />
+          </div>
+          <div class="form-input">
+            <label for="lineHour-color">Hour line Color</label>
+            <input type="color" id="lineHour-color" value="#b3230c" />
+          </div>
+          <div class="form-input">
+            <label for="lineMin-color">Minutes line Color</label>
+            <input type="color" id="lineMin-color" value="#ec8471" />
+          </div>
+          <div class="form-input">
+            <label for="hourHand-color"> Hour hand Color</label>
+            <input type="color" id="hourHand-color" value="#800000" />
+          </div>
+          <div class="form-input">
+            <label for="minHand-color"> Minutes hand Color</label>
+            <input type="color" id="minHand-color" value="#800000" />
+          </div>
+          <div class="form-input">
+            <label for="secondHand-color"> Second hand Color</label>
+            <input type="color" id="secondHand-color" value="#ff7f50" />
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
