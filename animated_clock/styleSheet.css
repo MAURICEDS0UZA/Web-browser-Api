@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+}
+/* responsive design  */
+@media screen and (max-width:712px) {
+   .container{
+    display:block;
+   }
+  
+  }
+
+.card {
+    background: #f4f4f4;
+    padding: 20px;
+    width: 230px;
+}
+
+.form-input {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+    font-weight: bold;
+}
