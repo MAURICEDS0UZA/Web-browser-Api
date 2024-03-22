@@ -109,3 +109,13 @@ function clock() {
   requestAnimationFrame(clock);
 }
 requestAnimationFrame(clock);
+
+const btnSave = document.getElementById("save-btn");
+
+btnSave.addEventListener("click", () => {
+  const dataURL = canvas.toDataURL("image/png");
+  const link = document.createElement("a");
+  link.download = "clock.png";
+  link.href = dataURL;
+  link.click();
+});
