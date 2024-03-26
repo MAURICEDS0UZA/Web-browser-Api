@@ -13,7 +13,6 @@ const songs = ["hey", "summer", "ukulele"];
 let songIndex = 0;
 
 const songIndexToPlay = function (song) {
-  console.log(song);
   title.innerText = song;
   audio.src = `music/${song}.mp3`;
   imageCover.src = `images/${song}.jpg`;
@@ -73,9 +72,22 @@ function updateSong(e) {
   const { currentTime, duration } = e.srcElement;
   const progressPercent = (currentTime / duration) * 100;
   progress.style.width = `${progressPercent}%`;
+
+  if (progressPercent >= 99.5) {
+    nextSong();
+  }
+}
+
+function updateProgress(e) {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+
+  audio.currentTime = (clickX / width) * duration;
 }
 
 play.addEventListener("click", playMusic);
 next.addEventListener("click", nextSong);
 prev.addEventListener("click", previousSong);
 audio.addEventListener("timeupdate", updateSong);
+progressContainer.addEventListener("click", updateProgress);
