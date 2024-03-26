@@ -10,8 +10,11 @@ const icon = play.querySelector("i.fas").classList;
 const songs = ["hey", "summer", "ukulele"];
 let songIndex = 0;
 
-audio.src = `music/${songs[songIndex]}.mp3`;
-imageCover.src = `images/${songs[songIndex]}.jpg`;
+const songIndexToPlay = function (songIndex) {
+  audio.src = `music/${songs[songIndex]}.mp3`;
+  imageCover.src = `images/${songs[songIndex]}.jpg`;
+  songPlay();
+};
 
 // Play music
 function songPlay() {
@@ -39,4 +42,24 @@ function playMusic() {
   }
 }
 
+// play Next song
+function nextSong() {
+  songIndex++;
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
+  songIndexToPlay(songIndex);
+}
+
+// play Previous song
+function previousSong() {
+  songIndex--;
+  if (songIndex <= -1) {
+    songIndex = songs.length - 1;
+  }
+  songIndexToPlay(songIndex);
+}
+
 play.addEventListener("click", playMusic);
+next.addEventListener("click", nextSong);
+prev.addEventListener("click", previousSong);
