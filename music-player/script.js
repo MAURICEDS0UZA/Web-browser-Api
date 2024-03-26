@@ -1,5 +1,6 @@
 const musicContainer = document.getElementById("music-container");
 const play = document.getElementById("play");
+const title = document.getElementById("title");
 const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const audio = document.getElementById("audio");
@@ -10,16 +11,22 @@ const icon = play.querySelector("i.fas").classList;
 const songs = ["hey", "summer", "ukulele"];
 let songIndex = 0;
 
-const songIndexToPlay = function (songIndex) {
-  audio.src = `music/${songs[songIndex]}.mp3`;
-  imageCover.src = `images/${songs[songIndex]}.jpg`;
+const songIndexToPlay = function (song) {
+  console.log(song);
+  title.innerText = song;
+  audio.src = `music/${song}.mp3`;
+  imageCover.src = `images/${song}.jpg`;
   songPlay();
 };
+songIndexToPlay(songs[songIndex]);
 
 // Play music
 function songPlay() {
   musicContainer.classList.add("play");
-  audio.play();
+  audio.play().catch((error) => {
+    // Log the error if there's any
+    console.error("Failed to play audio:", error);
+  });
   icon.remove("fa-play");
   icon.add("fa-pause");
 }
@@ -48,7 +55,7 @@ function nextSong() {
   if (songIndex > songs.length - 1) {
     songIndex = 0;
   }
-  songIndexToPlay(songIndex);
+  songIndexToPlay(songs[songIndex]);
 }
 
 // play Previous song
