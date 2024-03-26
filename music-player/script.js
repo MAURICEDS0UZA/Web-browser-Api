@@ -5,6 +5,7 @@ const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const audio = document.getElementById("audio");
 const progress = document.getElementById("progress");
+const progressContainer = document.getElementById("progress-container");
 const imageCover = document.getElementById("cover");
 const icon = play.querySelector("i.fas").classList;
 
@@ -67,6 +68,14 @@ function previousSong() {
   songIndexToPlay(songIndex);
 }
 
+// Display song status
+function updateSong(e) {
+  const { currentTime, duration } = e.srcElement;
+  const progressPercent = (currentTime / duration) * 100;
+  progress.style.width = `${progressPercent}%`;
+}
+
 play.addEventListener("click", playMusic);
 next.addEventListener("click", nextSong);
 prev.addEventListener("click", previousSong);
+audio.addEventListener("timeupdate", updateSong);
