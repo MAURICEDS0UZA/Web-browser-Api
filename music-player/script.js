@@ -13,7 +13,7 @@ const songs = ["hey", "summer", "ukulele"];
 let songIndex = 0;
 
 const songIndexToPlay = function (song) {
-  title.innerText = song;
+  title.innerText = song.toUpperCase();
   audio.src = `music/${song}.mp3`;
   imageCover.src = `images/${song}.jpg`;
   songPlay();
